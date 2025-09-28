@@ -1,0 +1,196 @@
+/* ================================
+   Global Reset and Variables
+   (English comments for code)
+   ================================ */
+   :root {
+    --bg: #0f0f12;
+    --bg-elev: #15151a;
+    --text: #e9e9ef;
+    --muted: #b9b9c6;
+    --brand: #6d9eff;
+    --brand-strong: #4b7cf0;
+    --border: #2a2a33;
+    --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    --radius: 14px;
+    --radius-sm: 10px;
+    --container: 1080px;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    margin: 0;
+    background: radial-gradient(1200px 700px at 10% -10%, rgba(109, 158, 255, 0.06), transparent 50%),
+                radial-gradient(900px 600px at 90% 10%, rgba(249, 120, 255, 0.04), transparent 50%),
+                var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    line-height: 1.7;
+    font-size: 16px;
+  }
+  
+  /* ================================
+     Layout
+     ================================ */
+  .container {
+    width: 100%;
+    max-width: var(--container);
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  
+  .section {
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+  }
+  
+  /* ================================
+     Header and Navigation
+     ================================ */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: saturate(150%) blur(10px);
+    background: rgba(15, 15, 18, 0.6);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.9rem;
+  }
+  
+  .site-title {
+    margin: 0;
+    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+    letter-spacing: 0.3px;
+  }
+  
+  .site-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: clamp(0.5rem, 2vw, 1rem);
+  }
+  
+  .site-nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text);
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius-sm);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.06s ease;
+  }
+  
+  .site-nav a:hover {
+    background: rgba(109, 158, 255, 0.12);
+    color: #ffffff;
+    transform: translateY(-1px);
+  }
+  
+  /* ================================
+     Typography
+     ================================ */
+  h1, h2, h3 {
+    line-height: 1.25;
+    margin: 0 0 0.6rem;
+  }
+  
+  h2 {
+    font-size: clamp(1.25rem, 2.6vw, 1.6rem);
+  }
+  
+  p {
+    margin: 0 0 1rem;
+    color: var(--text);
+  }
+  
+  p + p {
+    margin-top: 0.6rem;
+  }
+  
+  a {
+    color: var(--brand);
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: var(--brand-strong);
+  }
+  
+  /* ================================
+     Card and Article
+     ================================ */
+  .card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.005)) var(--bg-elev);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--card-shadow);
+    padding: clamp(1rem, 2vw, 1.5rem);
+  }
+  
+  .article-header {
+    margin-bottom: 0.8rem;
+    border-bottom: 1px dashed var(--border);
+    padding-bottom: 0.6rem;
+  }
+  
+  /* ================================
+     Buttons
+     ================================ */
+  .btn {
+    display: inline-block;
+    margin-top: 0.6rem;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+    border: 1px solid rgba(109, 158, 255, 0.35);
+    background: linear-gradient(180deg, rgba(109, 158, 255, 0.16), rgba(109, 158, 255, 0.08));
+    color: #eaf0ff;
+    transition: transform 0.06s ease, background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .btn:hover {
+    transform: translateY(-1px);
+    background: linear-gradient(180deg, rgba(109, 158, 255, 0.26), rgba(109, 158, 255, 0.12));
+    border-color: rgba(109, 158, 255, 0.6);
+    box-shadow: 0 8px 24px rgba(109, 158, 255, 0.15);
+  }
+  
+  /* ================================
+     Footer
+     ================================ */
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.4rem 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    background: rgba(15, 15, 18, 0.4);
+  }
+  
+  /* ================================
+     Responsive Tweaks
+     ================================ */
+  @media (max-width: 680px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .site-nav ul {
+      flex-wrap: wrap;
+    }
+  }
